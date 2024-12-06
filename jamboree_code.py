@@ -109,6 +109,13 @@ with col2:
             pred = [0]
         elif pred > 1.0:
             pred = [1.0]
-        st.markdown(f"<h3 style='color:#FF6347; font-weight:bold;'> Your Admission Chances is {pred[0]*100:.2f}", unsafe_allow_html=True)
-
+        
+        percentage_pred = np.round(pred[0]*100,2)
+        if percentage_pred > 85.0:
+            st.markdown(f"<h3 style='color:#046e45; font-weight:bold;'> Your Admission Chances is {percentage_pred}", unsafe_allow_html=True)
+        elif percentage_pred > 75.0 and percentage_pred < 85.0 :
+            st.markdown(f"<h3 style='color:#c49212; font-weight:bold;'> Your Admission Chances is {percentage_pred}", unsafe_allow_html=True)
+        else:
+            st.markdown(f"<h3 style='color:#a3170a; font-weight:bold;'> Your Admission Chances is {percentage_pred}", unsafe_allow_html=True)
+        
 
